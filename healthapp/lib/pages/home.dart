@@ -12,12 +12,96 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 34, 113, 177),
-      body: Column(children: [
+      body: Column(children: const [
         Titulo(),
         Barra(),
         Titulo2(),
         Emoticos(),
+        Area2(),
       ]),
+    );
+  }
+}
+
+class Area2 extends StatefulWidget {
+  const Area2({super.key});
+
+  @override
+  State<Area2> createState() => _Area2State();
+}
+
+class _Area2State extends State<Area2> {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      child: Column(
+        children: [
+          //Texto Excercises
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Exercises",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+                Icon(Icons.more_horiz)
+              ],
+            ),
+          ),
+          ListView(
+            children: const [
+              MyContent(
+                  emotico: "❤️",
+                  titulo: "Speaking skills",
+                  subtitulo: "16 Excercises"),
+              MyContent(
+                  emotico: "👨🏻",
+                  titulo: "Reading speed",
+                  subtitulo: "8 Excercises"),
+              MyContent(
+                  emotico: "❤️",
+                  titulo: "Star jumps",
+                  subtitulo: "40 Excercises"),
+            ],
+          )
+        ],
+      ),
+    ));
+  }
+}
+
+class MyContent extends StatelessWidget {
+  final String emotico;
+  final String titulo;
+  final String subtitulo;
+  const MyContent(
+      {super.key,
+      required this.emotico,
+      required this.titulo,
+      required this.subtitulo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      child: Row(
+        children: [
+          Container(
+            child: Text(emotico),
+          ),
+          Column(
+            children: [Text(titulo), Text(subtitulo)],
+          ),
+          Icon(Icons.more_horiz)
+        ],
+      ),
     );
   }
 }
@@ -28,7 +112,7 @@ class Emoticos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -136,7 +220,7 @@ class Titulo2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
