@@ -56,11 +56,30 @@ class _Area2State extends State<Area2> {
               ],
             ),
           ),
-          const MyItem(
-              dibujo: "🤍",
-              titulo: "Speaking skills",
-              subtitulo: "16 Excercises",
-              color: Colors.orange)
+          Expanded(
+            child: ListView(children: const [
+              MyItem(
+                  dibujo: "🤍",
+                  titulo: "Speaking skills",
+                  subtitulo: "16 Excercises",
+                  color: Colors.orange),
+              MyItem(
+                  dibujo: "🦸🏻‍♀️",
+                  titulo: "Reading speed",
+                  subtitulo: "6 Excercises",
+                  color: Colors.blue),
+              MyItem(
+                  dibujo: "🙆🏻",
+                  titulo: "Jumping",
+                  subtitulo: "20 Excercises",
+                  color: Colors.yellow),
+              MyItem(
+                  dibujo: "🏃🏻‍♂️",
+                  titulo: "Running Streed",
+                  subtitulo: "5 Millas",
+                  color: Colors.purple),
+            ]),
+          )
         ],
       ),
     ));
@@ -82,7 +101,7 @@ class MyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 15.0),
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
