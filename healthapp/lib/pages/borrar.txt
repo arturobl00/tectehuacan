@@ -1,0 +1,100 @@
+Nota consumir widget en listview
+Expanded(
+            child: ListView(children: const [
+              MyContent(
+                emotico: "❤️",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.blue,
+              ),
+              MyContent(
+                emotico: "👨🏻",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.cyan,
+              ),
+              MyContent(
+                emotico: "😶‍🌫️",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.grey,
+              ),
+              MyContent(
+                emotico: "👽",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.green,
+              ),
+              MyContent(
+                emotico: "🤖",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.yellow,
+              ),
+              MyContent(
+                emotico: "👻",
+                titulo: "Speaking skills",
+                subtitulo: "16 Excercises",
+                color: Colors.red,
+              ),
+            ]),
+          ),
+
+
+Nota crear el widget MyContent
+class MyContent extends StatelessWidget {
+  final String emotico;
+  final String titulo;
+  final String subtitulo;
+  final Color color;
+  const MyContent(
+      {super.key,
+      required this.emotico,
+      required this.titulo,
+      required this.subtitulo,
+      required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 193, 173, 173),
+            borderRadius: BorderRadius.circular(20)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                  color: color, borderRadius: BorderRadius.circular(20)),
+              child: Text(
+                emotico,
+                style: const TextStyle(fontSize: 30),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  titulo,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(subtitulo)
+              ],
+            ),
+            const SizedBox(
+              width: 150,
+            ),
+            const Icon(Icons.more_horiz)
+          ],
+        ),
+      ),
+    );
+  }
+}

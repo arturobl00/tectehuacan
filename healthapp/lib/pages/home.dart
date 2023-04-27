@@ -43,7 +43,8 @@ class _Area2State extends State<Area2> {
         children: [
           //Texto Excercises
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(
+                left: 20.0, right: 20.0, top: 20.0, bottom: 0.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
@@ -55,52 +56,79 @@ class _Area2State extends State<Area2> {
               ],
             ),
           ),
-          ListView(
-            children: const [
-              MyContent(
-                  emotico: "❤️",
-                  titulo: "Speaking skills",
-                  subtitulo: "16 Excercises"),
-              MyContent(
-                  emotico: "👨🏻",
-                  titulo: "Reading speed",
-                  subtitulo: "8 Excercises"),
-              MyContent(
-                  emotico: "❤️",
-                  titulo: "Star jumps",
-                  subtitulo: "40 Excercises"),
-            ],
-          )
+          const MyItem(
+              dibujo: "🤍",
+              titulo: "Speaking skills",
+              subtitulo: "16 Excercises",
+              color: Colors.orange)
         ],
       ),
     ));
   }
 }
 
-class MyContent extends StatelessWidget {
-  final String emotico;
+class MyItem extends StatelessWidget {
+  final String dibujo;
   final String titulo;
   final String subtitulo;
-  const MyContent(
+  final Color color;
+  const MyItem(
       {super.key,
-      required this.emotico,
+      required this.dibujo,
       required this.titulo,
-      required this.subtitulo});
+      required this.subtitulo,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      child: Row(
-        children: [
-          Container(
-            child: Text(emotico),
-          ),
-          Column(
-            children: [Text(titulo), Text(subtitulo)],
-          ),
-          Icon(Icons.more_horiz)
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3),
+              ),
+            ]),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(dibujo),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  titulo,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 3.0,
+                ),
+                Text(
+                  subtitulo,
+                  style: const TextStyle(color: Colors.grey),
+                )
+              ],
+            ),
+            const SizedBox(
+              width: 150.0,
+            ),
+            const Icon(Icons.more_horiz)
+          ],
+        ),
       ),
     );
   }
