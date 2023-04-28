@@ -26,6 +26,43 @@ class _MessagesState extends State<Messages> {
   }
 }
 
+class MensajesEnviados extends StatelessWidget {
+  final String mensaje;
+  final String tipo;
+  const MensajesEnviados(
+      {super.key, required this.mensaje, required this.tipo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            color: tipo == "Enviado" ? Colors.blueAccent[700] : Colors.green,
+            borderRadius: tipo == "Enviado"
+                ? BorderRadius.only(
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20))
+                : BorderRadius.only(
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20)),
+          ),
+          child: Text(
+            mensaje,
+            style: TextStyle(color: Colors.white),
+            textAlign: tipo == "Enviado" ? TextAlign.start : TextAlign.end,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class BarraEnviar extends StatelessWidget {
   const BarraEnviar({super.key});
 
@@ -88,6 +125,48 @@ class _Area3State extends State<Area3> {
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        child: ListView(children: const [
+          MensajesEnviados(
+            mensaje: "Hola como estas",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "Bien y Tu?",
+            tipo: "",
+          ),
+          MensajesEnviados(
+            mensaje: "Muy Bien Gracias",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "Aqui saludando y tu haces 🤔",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "No te interrumpo",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "No para nada todo bien",
+            tipo: "",
+          ),
+          MensajesEnviados(
+            mensaje: "aaaaaaaaaaaaaaa",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "🙄🙄🙄🙄🙄🙄🙄🙄🙄🙄🙄",
+            tipo: "Enviado",
+          ),
+          MensajesEnviados(
+            mensaje: "Sale Te dejo Gracias por platicar",
+            tipo: "",
+          ),
+          MensajesEnviados(
+            mensaje: "🙂",
+            tipo: "",
+          )
+        ]),
       ),
     );
   }
