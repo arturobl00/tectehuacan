@@ -78,6 +78,26 @@ class _Area2State extends State<Area2> {
                   titulo: "Running Streed",
                   subtitulo: "5 Millas",
                   color: Colors.purple),
+              MyItem(
+                  dibujo: "🦸🏻‍♀️",
+                  titulo: "Reading speed",
+                  subtitulo: "6 Excercises",
+                  color: Colors.blue),
+              MyItem(
+                  dibujo: "🙆🏻",
+                  titulo: "Jumping",
+                  subtitulo: "20 Excercises",
+                  color: Colors.yellow),
+              MyItem(
+                  dibujo: "🤍",
+                  titulo: "Speaking skills",
+                  subtitulo: "16 Excercises",
+                  color: Colors.orange),
+              MyItem(
+                  dibujo: "🦸🏻‍♀️",
+                  titulo: "Reading speed",
+                  subtitulo: "6 Excercises",
+                  color: Colors.blue),
             ]),
           )
         ],
