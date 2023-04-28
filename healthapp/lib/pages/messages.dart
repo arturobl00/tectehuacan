@@ -12,10 +12,61 @@ class _MessagesState extends State<Messages> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 34, 113, 177),
-      body: Column(children: const [
-        Titulo(),
-        Area3(),
+      body: Column(children: [
+        const Titulo(),
+        const Expanded(child: Area3()),
+        Container(
+            decoration: const BoxDecoration(color: Colors.white),
+            child: const Padding(
+              padding: EdgeInsets.only(bottom: 8.0, top: 8.0),
+              child: BarraEnviar(),
+            ))
       ]),
+    );
+  }
+}
+
+class BarraEnviar extends StatelessWidget {
+  const BarraEnviar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(20.0)),
+          child: Row(
+            children: const [
+              Text("🙂"),
+              SizedBox(
+                width: 5,
+              ),
+              Text("Mensaje"),
+              SizedBox(
+                width: 170,
+              ),
+              Icon(Icons.attach_file),
+              Icon(Icons.camera_alt),
+            ],
+          ),
+        ),
+        const SizedBox(
+          width: 10.0,
+        ),
+        Container(
+          padding: const EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+              color: Colors.blue, borderRadius: BorderRadius.circular(20.0)),
+          child: const Icon(
+            Icons.mic_none_rounded,
+            color: Colors.white,
+          ),
+        )
+      ],
     );
   }
 }
@@ -30,8 +81,7 @@ class Area3 extends StatefulWidget {
 class _Area3State extends State<Area3> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 30.0),
       child: Container(
         decoration: const BoxDecoration(
@@ -39,7 +89,7 @@ class _Area3State extends State<Area3> {
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       ),
-    ));
+    );
   }
 }
 
